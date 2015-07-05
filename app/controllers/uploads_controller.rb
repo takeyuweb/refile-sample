@@ -71,6 +71,7 @@ class UploadsController < ApplicationController
     def upload_params
       params.require(:upload).permit(:name,
                                      :file,
+                                     :remove_file,
                                      :confirming)
     end
 end

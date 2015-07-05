@@ -20,11 +20,14 @@
         </div>
 
         <% if f.object.file.present? %>
-            <div class="field">
-                <%= f.hidden_field :file, value: f.object.file_attacher.data.to_json %>
-                <%= image_tag attachment_url(f.object, :file, :fill, 200, 200) %>
-            </div>
-        <% end %>
+            <% unless f.object.file_attacher.remove? %>
+                <div class="field">
+                    <%= f.hidden_field :file, value: f.object.file_attacher.data.to_json %>
+                    <%= image_tag attachment_url(f.object, :file, :fill, 200, 200) %>
+                </div>
+            <% end %>
+        <% end  %>
+        <%= f.hidden_field :remove_file %>
 
         <div class="actions">
             <%= f.submit %>
@@ -37,6 +40,11 @@
         </div>
 
         <div class="field">
+            <% if f.object.file.present? %>
+                <%= image_tag attachment_url(f.object, :file, :fill, 200, 200) %>
+                <%= f.check_box :remove_file %>
+                <%= f.label :remove_file %>
+            <% end %>
             <%= f.attachment_field :file %>
         </div>
 

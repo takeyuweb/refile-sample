@@ -5,10 +5,12 @@
   <%= @upload.name %>
 </p>
 
-<p>
-    <strong>File:</strong>
-    <%= link_to @upload.file_filename, attachment_url(@upload, :file) %>
-</p>
+<% if @upload.file.present? %>
+    <p>
+        <strong>File:</strong>
+        <%= link_to @upload.file_filename, attachment_url(@upload, :file) %>
+    </p>
+<% end %>
 
 <%= link_to 'Edit', edit_upload_path(@upload) %> |
 <%= link_to 'Back', uploads_path %>
