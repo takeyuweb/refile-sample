@@ -45,7 +45,7 @@
                 <%= f.check_box :remove_file %>
                 <%= f.label :remove_file %>
             <% end %>
-            <%= f.attachment_field :file %>
+            <%= f.attachment_field :file, direct: true %>
         </div>
 
         <div class="actions">
