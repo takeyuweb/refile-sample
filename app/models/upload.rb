@@ -1,4 +1,4 @@
 class Upload < ActiveRecord::Base
   include Confirmable
-  attachment :file
+  attachment :file, type: :image
 end
