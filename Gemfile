@@ -43,6 +43,6 @@ group :development, :test do
   gem 'spring'
 end
 
-gem 'refile', require: 'refile/rails'
+gem 'refile', require: 'refile/rails', github: 'refile/refile'
 gem 'refile-mini_magick'
 gem 'refile-s3'
